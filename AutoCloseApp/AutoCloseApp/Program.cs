@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Version = System.Version;
 
 namespace AutoCloseApp
 {
@@ -21,8 +20,10 @@ namespace AutoCloseApp
         {          
             Loading.OnLoadingComplete += delegate
             {
+                // Get Ally/Enemy Nexus objs
                 AllyNexus = ObjectManager.Get<Obj_HQ>().First(n => n.IsAlly);
                 EnemyNexus = ObjectManager.Get<Obj_HQ>().First(n => n.IsEnemy);
+
                 Core.DelayAction(OnEndGame, 20000);
                 Chat.Print("AutoCloseApp: By DevAkumetsu");
             };   
@@ -39,8 +40,9 @@ namespace AutoCloseApp
             }
 
             Core.DelayAction(() =>
-            {        
-                Game.QuitGame(); // new close game from API 6.5
+            {
+                // new close game from API 6.5
+                Game.QuitGame(); 
             }, 14000);
         }
     }
