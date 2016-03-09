@@ -26,6 +26,7 @@ namespace AutoCloseApp
                 Core.DelayAction(OnEndGame, 20000);
                 Chat.Print("AutoCloseApp: By DevAkumetsu");
             };   
+
         }
          
         
