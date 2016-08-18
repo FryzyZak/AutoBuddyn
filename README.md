@@ -1,2 +1,1 @@
 # Elobuddy
-EloBuddy-Addons
