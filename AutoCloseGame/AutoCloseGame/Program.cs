@@ -25,7 +25,7 @@ namespace AutoCloseGame
                 EnemyNexus = ObjectManager.Get<Obj_HQ>().First(n => n.IsEnemy);
 
                 Core.DelayAction(OnEndGame, 20000);
-                Chat.Print("AutoCloseApp: By DevAkumetsu");
+                Chat.Print("AutoCloseGame: By DevAkumetsu");
             };   
 
         }
