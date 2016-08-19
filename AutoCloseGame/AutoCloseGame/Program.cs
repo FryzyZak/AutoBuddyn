@@ -30,7 +30,9 @@ namespace AutoCloseGame
 
         }
          
-        
+        /**
+         * OnEndGame method
+         **/
         public static void OnEndGame() {
 
             if (AllyNexus != null && EnemyNexus != null && (AllyNexus.Health > 1) && (EnemyNexus.Health > 1))
@@ -38,12 +40,10 @@ namespace AutoCloseGame
                 Core.DelayAction(OnEndGame, 5000);
                 return;
             }
-
             Core.DelayAction(() =>
-            {
-                // new close game from API 6.5
+            {                
                 Game.QuitGame(); 
-            }, 14000);
+            }, 20000);
         }
     }
 }
