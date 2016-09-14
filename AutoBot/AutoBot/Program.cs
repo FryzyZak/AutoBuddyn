@@ -12,22 +12,19 @@ using System.Reflection;
 
 namespace AutoBot
 {
-    public static class Program
+    class Program
     {
         public static string Author = "devAkumetsu";
         public static string AddonName = "AutoBot";
 
         static void Main(string[] args)
         {
-
             Hacks.DisableTextures = true;
             Hacks.AntiAFK = true;
             Hacks.RenderWatermark = false;
 
-            ManagedTexture.OnLoad += ManagedTexture_OnLoad;            
+            ManagedTexture.OnLoad += ManagedTexture_OnLoad;
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
-
-
         }
 
         private static void Loading_OnLoadingComplete(EventArgs args)
@@ -39,8 +36,6 @@ namespace AutoBot
             Chat.Print(AddonName + " made by " + Author + " loaded!");  // set version          
             Chat.Print("Version Loaded" + scriptVersion); // set version
 
-            // start menu
-           // MenuManager.Init(args); soon Kappa
         }
 
         private static void ManagedTexture_OnLoad(OnLoadTextureEventArgs args)

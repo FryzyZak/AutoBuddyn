@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B481B96B-A7A2-45D6-BD89-A029CB45E939}</ProjectGuid>
+    <ProjectGuid>{AEEED597-6863-4F6B-AD32-0AA504B67F14}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AutoBotChat</RootNamespace>
-    <AssemblyName>AutoBotChat</AssemblyName>
+    <RootNamespace>AutoBot</RootNamespace>
+    <AssemblyName>AutoBot</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,8 +36,23 @@
     <Reference Include="EloBuddy">
       <HintPath>..\..\CoreDependency\EloBuddy.dll</HintPath>
     </Reference>
+    <Reference Include="EloBuddy.Sandbox">
+      <HintPath>..\..\CoreDependency\EloBuddy.Sandbox.dll</HintPath>
+    </Reference>
     <Reference Include="EloBuddy.SDK">
       <HintPath>..\..\CoreDependency\EloBuddy.SDK.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\CoreDependency\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX">
+      <HintPath>..\..\CoreDependency\SharpDX.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>..\..\CoreDependency\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpDX.XInput">
+      <HintPath>..\..\CoreDependency\SharpDX.XInput.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,8 +64,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MenuManager.cs" />
-    <Compile Include="LanguageTranslator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
