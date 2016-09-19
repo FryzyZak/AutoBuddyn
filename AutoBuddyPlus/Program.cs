@@ -29,11 +29,19 @@ namespace AutoBuddy
 
         private static void Main(string[] args)
         {
+            // fix for aram map; and conflict with AramBuddy 
+            if (Game.MapId != GameMapId.SummonersRift)
+            {
+                Chat.Print(Game.MapId + " IS NOT Supported By AutoBuddyPlus");
+                return;
+            }
+
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
         }
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
+           
             createFS();
             Chat.Print("Welcome to Auto Buddy Plus.");
             Core.DelayAction(Start, 3000);
@@ -86,7 +94,7 @@ namespace AutoBuddy
             menu.Add("autoclose", new CheckBox("Auto close lol. Need Reload (F5)", true));
             menu.Add("oldWalk", new CheckBox("Use old orbwalk. Need Reload (F5)", false));
             menu.Add("debuginfo", new CheckBox("Draw debug info", false));
-            menu.Add("l1", new Label("By Christian Brutal Sniper - Updated and fixed by Tryller"));
+            menu.Add("l1", new Label("By Christian Brutal Sniper - Updated by Tryller And DevAkumetsu"));
 
             Chat.OnInput += Chat_OnInput;
         }
