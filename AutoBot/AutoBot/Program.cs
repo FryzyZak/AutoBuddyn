@@ -20,17 +20,16 @@ namespace AutoBot
         public static Random Rnd = new Random(Environment.TickCount);
 
         static void Main(string[] args)
-        {          
-          
+        {
+            // load the addon
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
         }
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
-
-            Version v = Assembly.GetExecutingAssembly().GetName().Version;
-            string scriptVersion = v.Major + "." + v.MajorRevision + "." + v.Minor + "." + v.MinorRevision;
             // version of addon
+            Version v = Assembly.GetExecutingAssembly().GetName().Version;
+            string scriptVersion = v.Major + "." + v.MajorRevision + "." + v.Minor + "." + v.MinorRevision;      
             Chat.Print(AddonName + " made by " + Author + " loaded!");            
             Chat.Print("Version Loaded" + scriptVersion); 
 
@@ -56,8 +55,7 @@ namespace AutoBot
 
             // Setup Chatting BOT
             if (!Config["chattingab"].Cast<CheckBox>().CurrentValue)
-                Chatting.Init();
-                      
+                Chatting.Init();                      
         }      
         
     }
