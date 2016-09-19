@@ -20,13 +20,8 @@ namespace AutoBot
         public static Random Rnd = new Random(Environment.TickCount);
 
         static void Main(string[] args)
-        {
-
-            Hacks.DisableTextures = true;
-            Hacks.AntiAFK = true;
-            Hacks.RenderWatermark = false;
-
-            ManagedTexture.OnLoad += ManagedTexture_OnLoad;
+        {          
+          
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
         }
 
@@ -42,7 +37,8 @@ namespace AutoBot
             // menu AutoBot
             Config = MainMenu.AddMenu("Auto Bot", "AutoBot");
             Config.Add("activeab", new CheckBox("Active the AutoBot?"));
-            Config.Add("textureab", new CheckBox("Show Texture? (f5 to load)"), false);
+            Config.Add("hacksab", new CheckBox("Active Texture? (f5 to load)"), false);
+            Config.Add("chattingab", new CheckBox("Active Chatting BOT?"), false);
 
             Game.OnUpdate += On_Update;
 
@@ -50,23 +46,19 @@ namespace AutoBot
 
         private static void On_Update(EventArgs args)
         {
+            // check if we need to active the addon ifself
             if (!Config["activeab"].Cast<CheckBox>().CurrentValue)
                 return;
+
+            // Setup hacks texture for BOTTING
+            if (!Config["hacksab"].Cast<CheckBox>().CurrentValue)
+                Hacks.Init();
+
+            // Setup Chatting BOT
+            if (!Config["chattingab"].Cast<CheckBox>().CurrentValue)
+                Chatting.Init();
                       
-            // Chat config
-            if (Player.Instance.IsDead)
-            {               
-                return;
-            }
-        }
+        }      
         
-
-        private static void ManagedTexture_OnLoad(OnLoadTextureEventArgs args)
-        {
-            if (!Config["textureab"].Cast<CheckBox>().CurrentValue)
-                return;
-
-            args.Process = false;
-        }
     }
 }
