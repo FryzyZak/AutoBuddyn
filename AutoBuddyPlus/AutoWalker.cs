@@ -37,6 +37,8 @@ namespace AutoBuddy
         private static bool oldWalk;
         public static bool newPF;
         public static EventHandler EndGame;
+        private static int Time = 0;
+        private static int TimeStuck = 0;
         static AutoWalker()
         {
             GameID = DateTime.Now.Ticks + ""+RandomString(10);
@@ -267,6 +269,38 @@ namespace AutoBuddy
 
         private static void OnTick(EventArgs args)
         {
+            // fix for stuck at base:
+            var turret = ObjectManager.Get<Obj_HQ>().First(tur => tur.IsAlly && tur.Name.Contains("HQ_T"));
+            if (Player.Instance.IsInRange(turret, 2700))
+            {
+                Time++;
+
+            }  else  {
+                Time = 0;
+            }
+
+            if (Time / 60 >= 8)
+            {
+                TimeStuck++;
+                // print  0, 5, 10
+                if (Time%5 == 0){ 
+                    Chat.Print("Stuck in Base? Game Will quit at 100: " + TimeStuck / 30);
+                }
+
+            }
+            else
+            {
+                TimeStuck = 0;
+            }
+
+            if (TimeStuck / 30 >= 100)
+            {
+                Chat.Print("Closing game because the player is stuck on Base.");
+                Game.QuitGame();
+            }
+
+
+
             if (PfNodes.Count != 0)
             {
                 Target = PfNodes[0];
