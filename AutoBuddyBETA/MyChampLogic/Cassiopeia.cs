@@ -24,7 +24,7 @@ namespace AutoBuddy.MyChampLogic
         public float HarassDistance { get { return 500; } }
         private readonly Spell.Skillshot Q, W, R;
         private readonly Spell.Targeted E;
-        private int minManaHarass = 35;
+        private int minManaHarass = 30;
         private int tick;
         private bool isTearOwned;
         private bool qblock;
@@ -61,9 +61,9 @@ namespace AutoBuddy.MyChampLogic
             W = new Spell.Skillshot(SpellSlot.W, 800, SkillShotType.Circular,
                 250, 3000, 180);
 
-            E = new Spell.Targeted(SpellSlot.E, 750);
+            E = new Spell.Targeted(SpellSlot.E, 700);
 
-            R = new Spell.Skillshot(SpellSlot.R, 1100, SkillShotType.Cone, spellWidth = 90, castDelay = 500);
+            R = new Spell.Skillshot(SpellSlot.R, 825, SkillShotType.Cone, spellWidth = 90, castDelay = 500);
 
         
             updateTearStatus();
