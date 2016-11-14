@@ -40,9 +40,10 @@ namespace AutoBot
 
             // menu AutoBot
             Config = MainMenu.AddMenu("Auto Bot", "AutoBot");
-            Config.Add("menu_active_autobot", new CheckBox("Active the AutoBot?"), true);
-            Config.Add("menu_hacks_autobot", new CheckBox("Active Texture? (f5 to load)"), false);
-            Config.Add("menu_chatting_autobot", new CheckBox("Active Chatting BOT?"), false);
+            Config.AddLabel("Activation: ");
+            Config.Add("menu_active_autobot", new CheckBox("Active the AutoBot?", true));
+           // Config.Add("menu_hacks_autobot", new CheckBox("Active Texture? (f5 to load)"), false);
+           // Config.Add("menu_chatting_autobot", new CheckBox("Active Chatting BOT?"), false);
 
             Game.OnUpdate += On_Update;
 
