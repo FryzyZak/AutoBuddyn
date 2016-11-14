@@ -51,17 +51,16 @@ namespace AutoBot
         private static void On_Update(EventArgs args)
         {
             // check if we need to active the addon ifself
-                if (!Config["menu_active_autobot"].Cast<CheckBox>().CurrentValue)
+            if (!Config["menu_active_autobot"].Cast<CheckBox>().CurrentValue) { 
                     return;
-
+            }
             // Setup hacks texture for BOTTING
             if (!Config["menu_hacks_autobot"].Cast<CheckBox>().CurrentValue) { 
                    // Hacks.Init();
             }
-
             // Setup Chatting BOT
-            if (!Config["menu_chatting_autobot"].Cast<CheckBox>().CurrentValue) { 
-                  //  Chatting.Init();
+            if (!Config["menu_chatting_autobot"].Cast<CheckBox>().CurrentValue) {
+                // Chatting.Init();
             }
         }
 
