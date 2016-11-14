@@ -210,8 +210,7 @@ namespace AutoBuddy.MyChampLogic
                 Q.Cast((Prediction.Position.PredictUnitPosition(AutoWalker.p, 2000) +
                        new Vector2(RandGen.r.NextFloat(-200, 200), RandGen.r.NextFloat(-200, 200))).To3D());
             }
-
-
+            
 
             if (Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.Harass || Orbwalker.ActiveModesFlags == Orbwalker.ActiveModes.LaneClear)
             {
