@@ -56,7 +56,7 @@ namespace AutoBot
             }
             // Setup hacks texture for BOTTING
             if (!Config["menu_hacks_autobot"].Cast<CheckBox>().CurrentValue) { 
-                   // Hacks.Init();
+                   // Ahacks.Init();
             }
             // Setup Chatting BOT
             if (!Config["menu_chatting_autobot"].Cast<CheckBox>().CurrentValue) {
