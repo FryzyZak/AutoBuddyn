@@ -21,7 +21,7 @@ namespace AutoBot
     {
         public static string Author = "devAkumetsu";
         public static string AddonName = "AutoBot";
-        public static Menu Config;
+        public static Menu addonMenu;
         public static Random Rnd = new Random(Environment.TickCount);
 
         static void Main(string[] args)
@@ -36,14 +36,23 @@ namespace AutoBot
             Version v = Assembly.GetExecutingAssembly().GetName().Version;
             string scriptVersion = v.Major + "." + v.MajorRevision + "." + v.Minor + "." + v.MinorRevision;      
             Chat.Print(AddonName + " made by " + Author + " loaded!");            
-            Chat.Print("Version Loaded" + scriptVersion); 
+            Chat.Print("Version Loaded" + scriptVersion);
 
-            // menu AutoBot
-            Config = MainMenu.AddMenu("Auto Bot", "AutoBot");
-            Config.AddLabel("Activation: ");
-            Config.Add("menu_active_autobot", new CheckBox("Active the AutoBot?", true));
-           // Config.Add("menu_hacks_autobot", new CheckBox("Active Texture? (f5 to load)"), false);
-           // Config.Add("menu_chatting_autobot", new CheckBox("Active Chatting BOT?"), false);
+            if (Game.MapId != GameMapId.SummonersRift)
+            {
+                Chat.Print(Game.MapId + " IS NOT Supported By AutoBot");
+                return;
+            }
+
+            // MENU AutoBot
+            addonMenu = MainMenu.AddMenu("Auto Bot", "AutoBot");
+            addonMenu.AddLabel("----------------------------");
+            addonMenu.AddLabel("Activation: ");
+            addonMenu.Add("menu_active_autobot", new CheckBox("Active the AutoBot?", true));
+            addonMenu.Add("menu_hacks_ab", new CheckBox("Active Texture?",  false));
+            addonMenu.Add("menu_chatting_ab", new CheckBox("Active Chatting BOT?", false));
+            addonMenu.Add("menu_game_abclose", new CheckBox("Close the game when finish the game?", false));
+            addonMenu.AddLabel("----------------------------");
 
             Game.OnUpdate += On_Update;
 
@@ -52,17 +61,17 @@ namespace AutoBot
         private static void On_Update(EventArgs args)
         {
             // check if we need to active the addon ifself
-            if (!Config["menu_active_autobot"].Cast<CheckBox>().CurrentValue) { 
+            /*if (!addonMenu["menu_active_autobot"].Cast<CheckBox>().CurrentValue) { 
                     return;
             }
             // Setup hacks texture for BOTTING
-            if (!Config["menu_hacks_autobot"].Cast<CheckBox>().CurrentValue) { 
+            if (!addonMenu["menu_hacks_autobot"].Cast<CheckBox>().CurrentValue) { 
                    // Ahacks.Init();
             }
             // Setup Chatting BOT
-            if (!Config["menu_chatting_autobot"].Cast<CheckBox>().CurrentValue) {
+            if (!addonMenu["menu_chatting_autobot"].Cast<CheckBox>().CurrentValue) {
                 // Chatting.Init();
-            }
+            }*/
         }
 
     }
