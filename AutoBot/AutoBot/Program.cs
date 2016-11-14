@@ -19,7 +19,7 @@ namespace AutoBot
 {
     class Program
     {
-        public static string Author = "devAkumetsu";
+        public static string Author = "DevAkumetsu";
         public static string AddonName = "AutoBot";
         public static Menu addonMenu;
         public static Random Rnd = new Random(Environment.TickCount);

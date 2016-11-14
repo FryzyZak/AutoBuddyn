@@ -1,12 +1,8 @@
 ﻿using EloBuddy;
 using EloBuddy.SDK;
-using EloBuddy.SDK.Enumerations;
 using EloBuddy.SDK.Events;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace AutoCloseGame
 {
@@ -39,11 +35,8 @@ namespace AutoCloseGame
             {
                 Core.DelayAction(OnEndGame, 5000);
                 return;
-            }
-            Core.DelayAction(() =>
-            {                
-                Game.QuitGame(); 
-            }, 20000);
+            }                     
+           Game.QuitGame();           
         }
     }
 }
