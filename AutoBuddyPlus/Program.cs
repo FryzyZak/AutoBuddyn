@@ -29,6 +29,10 @@ namespace AutoBuddy
 
         private static void Main(string[] args)
         {
+            Chat.Print("AutoBuddyPlus Is not longer maintained by me, please install AutoBuddyBeta from this same repository. http://github.com/devakumetsu");
+
+            return;
+            
             // fix for aram map; and conflict with AramBuddy 
             if (Game.MapId != GameMapId.SummonersRift)
             {
