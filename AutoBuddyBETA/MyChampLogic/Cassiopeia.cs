@@ -54,7 +54,7 @@ namespace AutoBuddy.MyChampLogic
                 Core.DelayAction(fl, 10000);
             }
             ShopSequence =
-                "3340:Buy,2003:StartHpPot,1056:Buy,1027:Buy,3070:Buy,1058:Buy,3003:Buy,1028:Buy,1011:Buy,1058:Buy,2003:StopHpPot,3116:Buy,1004:Buy,1004:Buy,3114:Buy,1052:Buy,3108:Buy,3165:Buy,1056:Sell,1058:Buy,3089:Buy,1028:Buy,3136:Buy,3151:Buy";
+               "3340:Buy,2003:StartHpPot,1056:Buy,1027:Buy,3070:Buy,1058:Buy,3003:Buy,1028:Buy,1011:Buy,1058:Buy,2003:StopHpPot,3116:Buy,1004:Buy,1004:Buy,3114:Buy,1052:Buy,3108:Buy,3165:Buy,1056:Sell,1058:Buy,3089:Buy,1028:Buy,3136:Buy,3151:Buy";
             Q = new Spell.Skillshot(SpellSlot.Q, 850, SkillShotType.Circular,
                 castDelay = 1, spellWidth = 130);
 
