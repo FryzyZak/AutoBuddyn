@@ -46,6 +46,7 @@ namespace AutoBot
 
             // MENU AutoBot
             addonMenu = MainMenu.AddMenu("Auto Bot", "AutoBot");
+            addonMenu.AddLabel(AddonName + " made by " + Author + " loaded!");
             addonMenu.AddLabel("----------------------------");
             addonMenu.AddLabel("Activation: ");
             addonMenu.Add("menu_active_autobot", new CheckBox("Active the AutoBot?", true));
@@ -53,6 +54,9 @@ namespace AutoBot
             addonMenu.Add("menu_chatting_ab", new CheckBox("Active Chatting BOT?", false));
             addonMenu.Add("menu_game_abclose", new CheckBox("Close the game when finish the game?", false));
             addonMenu.AddLabel("----------------------------");
+            addonMenu.AddSeparator(5);
+            addonMenu.AddGroupLabel("Others");
+
 
             Game.OnUpdate += On_Update;
 
