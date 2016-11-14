@@ -46,14 +46,15 @@ namespace AutoBot
 
             // MENU AutoBot
             addonMenu = MainMenu.AddMenu("Auto Bot", "AutoBot");
-            addonMenu.AddLabel(AddonName + " made by " + Author + " loaded!");
-            addonMenu.AddLabel("----------------------------");
+            addonMenu.AddLabel(AddonName + " made by " + Author + ", email: otaku.akumetsu@gmail.com ");
+            addonMenu.AddSeparator(5);
             addonMenu.AddLabel("Activation: ");
             addonMenu.Add("menu_active_autobot", new CheckBox("Active the AutoBot?", true));
             addonMenu.Add("menu_hacks_ab", new CheckBox("Active Texture?",  false));
             addonMenu.Add("menu_chatting_ab", new CheckBox("Active Chatting BOT?", false));
+            addonMenu.Add("menu_game_abdisablechat", new CheckBox("Disable Chat?", false));
             addonMenu.Add("menu_game_abclose", new CheckBox("Close the game when finish the game?", false));
-            addonMenu.AddLabel("----------------------------");
+     
             addonMenu.AddSeparator(5);
             addonMenu.AddGroupLabel("Others");
 

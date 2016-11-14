@@ -12,24 +12,22 @@ using System.Reflection;
 namespace AutoBot
 {
     class Ahacks
-    {
-      
+    {      
      
         public static void Init()
         {
 
-           /* Hacks.DisableTextures = true;
+            Hacks.DisableTextures = true;
             Hacks.AntiAFK = true;
-            Hacks.RenderWatermark = false;*/
+            Hacks.RenderWatermark = false;
 
-            ManagedTexture.OnLoad += ManagedTexture_OnLoad;
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
         }
 
         private static void Loading_OnLoadingComplete(EventArgs args)
         {
-            
 
+            ManagedTexture.OnLoad += ManagedTexture_OnLoad;
         }
 
         private static void ManagedTexture_OnLoad(OnLoadTextureEventArgs args)
