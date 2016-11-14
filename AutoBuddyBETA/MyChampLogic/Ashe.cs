@@ -13,8 +13,7 @@ namespace AutoBuddy.MyChampLogic
         public float MaxDistanceForAA { get { return int.MaxValue; } }
         public float OptimalMaxComboDistance { get { return AutoWalker.p.AttackRange; } }
         public float HarassDistance { get { return AutoWalker.p.AttackRange; } }
-
-
+        
         public Spell.Active Q;
         public Spell.Skillshot W, E, R;
 
@@ -59,8 +58,7 @@ namespace AutoBuddy.MyChampLogic
             if (R.IsReady() || W.IsReady())
             {
                 AIHeroClient chaser =
-                    EntityManager.Heroes.Enemies.FirstOrDefault(
-                        chase => chase.Distance(AutoWalker.p) < 600 && chase.IsVisible());
+                    EntityManager.Heroes.Enemies.FirstOrDefault(chase => chase.Distance(AutoWalker.p) < 600 && chase.IsVisible());
                 if (chaser != null)
                 {
                     if (R.IsReady() && AutoWalker.p.HealthPercent() > 18)
@@ -73,9 +71,10 @@ namespace AutoBuddy.MyChampLogic
 
         public void Combo(AIHeroClient target)
         {
-            if (R.IsReady() && target.HealthPercent() < 25 && AutoWalker.p.Distance(target) > 600 &&
-                AutoWalker.p.Distance(target) < 1600 && target.IsVisible())
+            if (R.IsReady() && target.HealthPercent() < 200 && AutoWalker.p.Distance(target) > 600 &&
+                AutoWalker.p.Distance(target) < 1200 && target.IsVisible()) { 
                 R.Cast(target);
+            }
         }
 
         private void Game_OnTick(System.EventArgs args)

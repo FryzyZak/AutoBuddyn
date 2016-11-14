@@ -52,11 +52,7 @@ namespace AutoBuddy.Utilities.AutoShop
             shop = new EasyShopV2(myBuild, enabled);
 
 
-
-
-
-
-
+            
             Menu info = parentMenu.AddSubMenu("Shop-instructions");
             toDefault=new CheckBox("Delete custom build and set default ADC build", false);
 

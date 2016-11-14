@@ -93,7 +93,7 @@ AutoBuddy won't recall if you have less gold than needed for next item.
 
         private void Drawing_OnDraw(EventArgs args)
         {
-            Drawing.DrawText(250, 55, System.Drawing.Color.Gold,
+            Drawing.DrawText(250, 55, System.Drawing.Color.White,
                 "Recall, active: " + active+" next item: "+ShopGlobals.Next+" gold needed:"+ShopGlobals.GoldForNextItem);
         }
 
