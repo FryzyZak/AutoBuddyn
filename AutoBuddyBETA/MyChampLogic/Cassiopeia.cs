@@ -32,6 +32,9 @@ namespace AutoBuddy.MyChampLogic
         private StreamWriter file500;
         private StreamWriter file600;
         private StreamWriter file700;
+        private static int spellWidth;
+        private static int castDelay;
+
         private readonly bool log = false;
         public Cassiopeia()
         {
@@ -52,10 +55,17 @@ namespace AutoBuddy.MyChampLogic
             }
             ShopSequence =
                 "3340:Buy,2003:StartHpPot,1056:Buy,1027:Buy,3070:Buy,1058:Buy,3003:Buy,1028:Buy,1011:Buy,1058:Buy,2003:StopHpPot,3116:Buy,1004:Buy,1004:Buy,3114:Buy,1052:Buy,3108:Buy,3165:Buy,1056:Sell,1058:Buy,3089:Buy,1028:Buy,3136:Buy,3151:Buy";
-            Q = new Spell.Skillshot(SpellSlot.Q, 850, SkillShotType.Circular, 600, int.MaxValue, 35);
-            W = new Spell.Skillshot(SpellSlot.W, 850, SkillShotType.Circular, 500, 2500, 90);
-            R = new Spell.Skillshot(SpellSlot.R, 500, SkillShotType.Cone, 650, int.MaxValue, 75);
-            E = new Spell.Targeted(SpellSlot.E, 700);
+            Q = new Spell.Skillshot(SpellSlot.Q, 850, SkillShotType.Circular,
+                castDelay = 1, spellWidth = 130);
+
+            W = new Spell.Skillshot(SpellSlot.W, 800, SkillShotType.Circular,
+                250, 3000, 180);
+
+            E = new Spell.Targeted(SpellSlot.E, 750);
+
+            R = new Spell.Skillshot(SpellSlot.R, 1100, SkillShotType.Cone, spellWidth = 90, castDelay = 500);
+
+        
             updateTearStatus();
             Game.OnTick += Game_OnTick;
             if (MainMenu.GetMenu("AB").Get<CheckBox>("debuginfo").CurrentValue)
@@ -128,6 +138,7 @@ namespace AutoBuddy.MyChampLogic
             res += " " + myhp + " " + targhp + " " + castheropos.Distance(targetPos);
             fi.WriteLine(res);
         }
+
         private void updateTearStatus()
         {
             isTearOwned = BrutalItemInfo.GetItemSlot(3070) != -1 || BrutalItemInfo.GetItemSlot(3003) != -1;
