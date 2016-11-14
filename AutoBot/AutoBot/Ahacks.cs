@@ -11,16 +11,16 @@ using System.Reflection;
 
 namespace AutoBot
 {
-    class Hacks
+    class Ahacks
     {
       
      
         public static void Init()
         {
 
-            Hacks.DisableTextures = true;
+           /* Hacks.DisableTextures = true;
             Hacks.AntiAFK = true;
-            Hacks.RenderWatermark = false;
+            Hacks.RenderWatermark = false;*/
 
             ManagedTexture.OnLoad += ManagedTexture_OnLoad;
             Loading.OnLoadingComplete += Loading_OnLoadingComplete;
