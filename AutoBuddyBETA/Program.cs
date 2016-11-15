@@ -62,7 +62,7 @@ namespace AutoBuddy
 
             Chat.Print("Welcome to AutoBuddyBETA:", System.Drawing.Color.White);
             Chat.Print("AutoBuddyBETA Version: " + ABVersion, System.Drawing.Color.LimeGreen);
-            Chat.Print("AutoBuddyBETA: Will Starting in 10 seconds.");
+            Chat.Print("AutoBuddyBETA: Will Starting in 10 seconds.", System.Drawing.Color.LimeGreen);
             Core.DelayAction(Start, 10000);
 
 

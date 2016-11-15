@@ -143,6 +143,7 @@ AutoBuddy won't recall if you have less gold than needed for next item.
             if (ObjectManager.Player.Distance(spawn) < 500) return;
             Core.DelayAction(CastRecall2, 300);
         }
+
         private void CastRecall2()//Kappa
         {
             if (ObjectManager.Player.Distance(spawn) < 500)
