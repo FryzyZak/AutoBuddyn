@@ -35,8 +35,13 @@ namespace AutoCloseGame
             {
                 Core.DelayAction(OnEndGame, 5000);
                 return;
-            }                     
-           Game.QuitGame();           
+            }
+
+            Core.DelayAction(() =>
+            {
+                Game.QuitGame();
+           }, 15000); // wait 15 seg after the game end
+
         }
     }
 }
