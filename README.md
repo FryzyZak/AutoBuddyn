@@ -11,7 +11,7 @@
   
   My old version of autobuddyPlus; made by tryller; i discontinue updating this version keep it in the repo for testing.
   
- # AutoCloSeGame 
+# AutoCloSeGame 
 
   Just a close game Addon, use for test, you can use it with autobuddy (the other version dont have my fix).
 
