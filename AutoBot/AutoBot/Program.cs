@@ -38,6 +38,9 @@ namespace AutoBot
             Chat.Print(AddonName + " made by " + Author + " loaded!");            
             Chat.Print("Version Loaded" + scriptVersion);
 
+            Console.WriteLine(AddonName + " made by " + Author + " loaded!");
+            Console.WriteLine("Version Loaded" + scriptVersion);
+
             if (Game.MapId != GameMapId.SummonersRift)
             {
                 Chat.Print(Game.MapId + " IS NOT Supported By AutoBot");
