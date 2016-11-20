@@ -69,7 +69,7 @@ namespace AutoBuddy.MainLogics
 
         private void Drawing_OnDraw(EventArgs args)
         {
-            Drawing.DrawText(250, 70, Color.Gold, "Lane selector status: " + status);
+            Drawing.DrawText(250, 70, Color.White, "Lane selector status: " + status);
         }
 
         public void Activate()
@@ -111,11 +111,15 @@ namespace AutoBuddy.MainLogics
                     AutoWalker.WalkTo(p.Extend(AutoWalker.MyNexus, 200 + RandGen.r.NextFloat(0, 100)).To3DWorld().Randomized());
                 }
 
-
+                Console.WriteLine("Can Select a line on SetLane()");
                 CanSelectLane();
             }
-            else
+            else {
+                Console.WriteLine("Select most pushed line on SetLane()");
                 SelectMostPushedLane();
+              
+
+            }
         }
 
         public void Deactivate()
@@ -175,7 +179,7 @@ namespace AutoBuddy.MainLogics
 
         private void SelectMostPushedLane()
         {
-            status = "selected most pushed lane";
+           
             Obj_HQ nMyNexus = ObjectManager.Get<Obj_HQ>().First(hq => hq.IsEnemy);
 
             Obj_AI_Minion andrzej =
@@ -184,6 +188,8 @@ namespace AutoBuddy.MainLogics
                     .OrderBy(min => min.Distance(nMyNexus))
                     .First();
 
+            status = "selected most pushed lane: " + andrzej.GetLane();
+
             Obj_AI_Base ally =
                 ObjectManager.Get<Obj_AI_Turret>()
                     .Where(tur => tur.IsAlly && tur.Health > 0 && tur.GetLane() == andrzej.GetLane())
@@ -191,6 +197,7 @@ namespace AutoBuddy.MainLogics
                     .FirstOrDefault();
             if (ally == null)
             {
+                Console.WriteLine("ally 1");
                 ally =
                     ObjectManager.Get<Obj_AI_Turret>()
                         .Where(tur => tur.Health > 0 && tur.IsAlly
@@ -200,6 +207,7 @@ namespace AutoBuddy.MainLogics
             }
             if (ally == null)
             {
+                Console.WriteLine("ally 2");
                 ally =
                     ObjectManager.Get<Obj_AI_Turret>().FirstOrDefault(tur => tur.IsAlly && tur.GetLane() == Lane.Spawn);
             }
@@ -211,6 +219,7 @@ namespace AutoBuddy.MainLogics
                     .FirstOrDefault();
             if (enemy == null)
             {
+                Console.WriteLine("enemy 1");
                 enemy =
                     ObjectManager.Get<Obj_AI_Turret>()
                         .Where(tur => tur.Health > 0 && tur.IsEnemy
@@ -220,6 +229,7 @@ namespace AutoBuddy.MainLogics
             }
             if (enemy == null)
             {
+                Console.WriteLine("enemy 2");
                 enemy =
                     ObjectManager.Get<Obj_AI_Turret>().FirstOrDefault(tur => tur.IsEnemy && tur.GetLane() == Lane.Spawn);
             }

@@ -36,6 +36,7 @@ namespace AutoBuddy.MyChampLogic
         private static int castDelay;
 
         private readonly bool log = false;
+
         public Cassiopeia()
         {
             if (BrutalExtensions.GetGameType().Equals("bot_intermediate"))
@@ -56,22 +57,23 @@ namespace AutoBuddy.MyChampLogic
             ShopSequence =
                "3340:Buy,2003:StartHpPot,1056:Buy,1027:Buy,3070:Buy,1058:Buy,3003:Buy,1028:Buy,1011:Buy,1058:Buy,2003:StopHpPot,3116:Buy,1004:Buy,1004:Buy,3114:Buy,1052:Buy,3108:Buy,3165:Buy,1056:Sell,1058:Buy,3089:Buy,1028:Buy,3136:Buy,3151:Buy";
             Q = new Spell.Skillshot(SpellSlot.Q, 850, SkillShotType.Circular,
-                castDelay = 1, spellWidth = 130);
+                castDelay = 400,null, spellWidth = 130);
 
             W = new Spell.Skillshot(SpellSlot.W, 800, SkillShotType.Circular,
-                250, 3000, 180);
+                550,3000, spellWidth = 180);
 
             E = new Spell.Targeted(SpellSlot.E, 700);
 
-            R = new Spell.Skillshot(SpellSlot.R, 825, SkillShotType.Cone, spellWidth = 90, castDelay = 500);
+            R = new Spell.Skillshot(SpellSlot.R, 825, SkillShotType.Cone, castDelay = 500,null,spellWidth = 90 );
+            
 
-        
+
             updateTearStatus();
             Game.OnTick += Game_OnTick;
             if (MainMenu.GetMenu("AB").Get<CheckBox>("debuginfo").CurrentValue)
                 Drawing.OnDraw += Drawing_OnDraw;
             
-        }
+       }
 
         private void fl()
         {
@@ -154,6 +156,15 @@ namespace AutoBuddy.MyChampLogic
                 Circle.Draw(new ColorBGRA(100, 100, 100, 255), 10, vector3);
             }
             Drawing.DrawText(900, 10, Color.Chocolate, dmg, 70);
+
+            new Circle() { Color = Color.Aqua, BorderWidth = 1f, Radius = Q.Range }.Draw(AutoWalker.p.Position);
+            new Circle() { Color = Color.Red, BorderWidth = 1f, Radius = W.Range }.Draw(AutoWalker.p.Position);
+            new Circle() { Color = Color.Aqua, BorderWidth = 1f, Radius = E.Range }.Draw(AutoWalker.p.Position);
+            new Circle() { Color = Color.Aqua, BorderWidth = 1f, Radius = R.Range }.Draw(AutoWalker.p.Position);
+
+
+
+
             /*AIHeroClient buf =
     EntityManager.Heroes.AllHeroes.Where(h => h.Distance(Game.CursorPos) < 800)
         .OrderBy(e => e.Distance(Game.CursorPos))
@@ -187,7 +198,10 @@ namespace AutoBuddy.MyChampLogic
         }
 
         private void Game_OnTick(EventArgs args)
+
         {
+
+
             //Chat.Print(AutoWalker.Recalling());
             AIHeroClient t = EntityManager.Heroes.Enemies.Where(en => en.IsVisible() && en.Distance(Game.CursorPos) < 630).OrderBy(en => en.Health).FirstOrDefault();
             if (t != null)

@@ -26,8 +26,10 @@ namespace AutoBuddy.MainLogics
 
         private void Drawing_OnDraw(EventArgs args)
         {
-            Drawing.DrawText(250, 25, System.Drawing.Color.Gold,
+            Drawing.DrawText(250, 25, System.Drawing.Color.White,
                 "Combat, active:  " + active + " last mode: " + lastMode);
+
+  
         }
 
 

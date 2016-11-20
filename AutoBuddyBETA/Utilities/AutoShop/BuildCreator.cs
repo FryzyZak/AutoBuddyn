@@ -51,8 +51,7 @@ namespace AutoBuddy.Utilities.AutoShop
             LoadBuild();
             shop = new EasyShopV2(myBuild, enabled);
 
-
-            
+                        
             Menu info = parentMenu.AddSubMenu("Shop-instructions");
             toDefault=new CheckBox("Delete custom build and set default ADC build", false);
 
@@ -63,10 +62,6 @@ namespace AutoBuddy.Utilities.AutoShop
             info.AddSeparator(150);
             info.AddLabel(
                 @"
-
-
-
-:) Updated by TheYasuoMain :)
 
 Commands(type them in the chat):
 
@@ -91,11 +86,7 @@ you can copy/share them.
 
             ");
 
-
-
-
-
-
+            
             toDefault.OnValueChange += toDefault_OnValueChange;
             Chat.OnInput += Chat_OnInput;
             Drawing.OnEndScene += Drawing_OnEndScene;
@@ -173,7 +164,7 @@ you can copy/share them.
                 foreach (ItemAction ac in DeserializeBuild(s))
                 {
                     AddElement(BrutalItemInfo.GetItemByID(ac.item), ac.t);
-                    Console.Write("Custom Build Loading ");
+                    Console.WriteLine("Custom Item Loaded: " + BrutalItemInfo.GetItemByID(ac.item)) ;
                 }
                 Chat.Print("Loaded build from: " + buildFile);
             }

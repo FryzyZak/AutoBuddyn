@@ -174,6 +174,7 @@ namespace AutoBuddy
                 if(PfNodes[i].IsOnScreen()||PfNodes[i+1].IsOnScreen())
                     Line.DrawLine(Color.Aqua, 4, PfNodes[i], PfNodes[i+1]);
             }
+
         
         }
 

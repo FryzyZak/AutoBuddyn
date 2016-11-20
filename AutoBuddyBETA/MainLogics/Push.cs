@@ -115,7 +115,7 @@ namespace AutoBuddy.MainLogics
 
         private void Drawing_OnDraw(EventArgs args)
         {
-            Drawing.DrawText(250, 40, Color.Gold,
+            Drawing.DrawText(250, 40, Color.White,
                 "Push, active: " + active + "  wave num: " + CurrentWaveNum + " minions left: " + currentWave.Length);
             Circle.Draw(color, 100, currentWave.Length <= 0 ? AutoWalker.p.Position : AvgPos(currentWave));
 

@@ -49,7 +49,7 @@ namespace AutoBuddy.MainLogics
 
         private void Drawing_OnDraw(System.EventArgs args)
         {
-            Drawing.DrawText(250, 85, Color.Gold, current.ToString());
+            Drawing.DrawText(250, 85, Color.White, current.ToString());
             Vector2 v = Game.CursorPos.WorldToScreen();
             Drawing.DrawText(v.X, v.Y - 20, Color.Gold, localAwareness.LocalDomination(Game.CursorPos) + " ");
         }

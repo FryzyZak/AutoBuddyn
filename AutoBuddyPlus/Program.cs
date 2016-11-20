@@ -29,8 +29,7 @@ namespace AutoBuddy
 
         private static void Main(string[] args)
         {
-            Chat.Print("AutoBuddyPlus Is not longer maintained by me, please install AutoBuddyBeta from this same repository. http://github.com/devakumetsu");
-
+            Chat.Print("AutoBuddyPlus Is not longer maintained by me, please install AutoBuddyBeta from this same repository.");
             return;
             
             // fix for aram map; and conflict with AramBuddy 
